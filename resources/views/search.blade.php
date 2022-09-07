@@ -257,7 +257,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/ion-rangeslider/2.3.1/js/ion.rangeSlider.min.js"></script>
 <script
-  src="//maps.googleapis.com/maps/api/js?key=AIzaSyBLDIblkJ1Ac7bywYLO42XvdQ7AtHLDg1s&libraries=places&v=weeklyZ&callback=map_up">
+  src="//maps.googleapis.com/maps/api/js?key=&libraries=places&v=weeklyZ&callback=map_up">
 </script>
 <script>
   $(document).ready(function() {
@@ -265,7 +265,7 @@
   });
   var __defaults = {
   map : {
-    key : 'AIzaSyAilNbkUpfBSlpqmg-1Sqh7dZ386-KbJUU',
+    key : '',
     center : { lat: 36.778259, lng: -119.417931 }
   }
 } 
