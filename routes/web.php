@@ -38,7 +38,7 @@ Route::get('cancel-transaction', [PayPalController::class, 'cancelTransaction'])
 
 
 Route::prefix('user')->group(function () {
-    Route::get('dashboard', [App\Http\Controllers\UserController::class, 'index'])->name('admin_dashboard');
+    Route::get('dashboard', [App\Http\Controllers\UserController::class, 'index'])->name('user_dashboard');
     Route::get('mybooking', [App\Http\Controllers\UserController::class, 'mybooking'])->name('user_mybooking');
     Route::get('booking-details', [App\Http\Controllers\UserController::class, 'booking_detail'])->name('user_booking_detail');
     Route::get('booking-info', [App\Http\Controllers\UserController::class, 'booking_info'])->name('user_booking_info');
@@ -51,5 +51,7 @@ Route::prefix('admin')->group(function () {
     Route::get('dashboard', [App\Http\Controllers\AdminController::class, 'index'])->name('admin_dashboard');
     Route::get('users', [App\Http\Controllers\AdminController::class, 'alluser'])->name('alluser');
     Route::get('delete-user/{id}', [App\Http\Controllers\AdminController::class, 'deluser'])->name('deluser');
+
+    Route::get('bookings', [App\Http\Controllers\AdminController::class, 'allbooking'])->name('allbooking');
 
 });

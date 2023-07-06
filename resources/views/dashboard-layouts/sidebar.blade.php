@@ -14,6 +14,16 @@
                         <span class="nav-text">Users</span>
                     </a>
                 </li>
+                <li><a href="{{route('allbooking')}}" class="ai-icon" aria-expanded="false">
+                    <i class="flaticon-381-settings-2"></i>
+                    <span class="nav-text">Bookings</span>
+                </a>
+            </li>
+            <li><a href="{{route('alluser')}}" class="ai-icon" aria-expanded="false">
+                <i class="flaticon-381-settings-2"></i>
+                <span class="nav-text">Orders</span>
+            </a>
+        </li>
                 {{-- <li><a href="" class="ai-icon" aria-expanded="false">
                     <i class="flaticon-381-settings-2"></i>
                     <span class="nav-text">CMP's</span>

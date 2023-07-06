@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
+
+use App\Models\Booking;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
@@ -21,5 +23,10 @@ class AdminController extends Controller
     {
         $user = User::find($id)->delete();
         return redirect()->back()->with('message','User Deleted Successfully!');
+    }
+    public function allbooking()
+    {
+        $user = Booking::all();
+        return view('admin.booking.index',compact('user'));
     }
 }

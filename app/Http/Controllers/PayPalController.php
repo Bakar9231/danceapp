@@ -31,7 +31,7 @@ class PayPalController extends Controller
         // $cart = session()->get('cart');
         // DD($cart);
         $data = Profile::where('id',$request->profile_id)->first();
-        // dd($data);
+        //dd($data);
         if($request->booking_type == "Half Day")
         {
             if($request->recurring == "yes")
@@ -41,7 +41,7 @@ class PayPalController extends Controller
             else{
                 $price =  $data->half_price;
             }
-            
+
         }
         else{
              if($request->recurring == "yes")
@@ -51,8 +51,8 @@ class PayPalController extends Controller
             else{
                  $price =  $data->full_price;
             }
-           
-        } 
+
+        }
         $provider = new PayPalClient;
         $provider->setApiCredentials(config('paypal'));
         $paypalToken = $provider->getAccessToken();
@@ -68,11 +68,11 @@ class PayPalController extends Controller
                     "amount" => [
                         "currency_code" => "USD",
                         "value" => $price,
-                    ] 
+                    ]
                 ]
                     ],
-        ]); 
-        
+        ]);
+
 
         if (isset($response['id']) && $response['id'] != null) {
 
@@ -102,18 +102,18 @@ class PayPalController extends Controller
     public function successTransaction(Request $request)
     {
         $cart = session()->get('cart');
-        
+
         $provider = new PayPalClient;
         $provider->setApiCredentials(config('paypal'));
         $provider->getAccessToken();
         $response = $provider->capturePaymentOrder($request['token']);
-        
 
-        
+
+
         $order = new Order();
         $order->user_id = Auth::user()->id;
         $order->status = $response['status'];
-        $order->save(); 
+        $order->save();
 
 
         $order_detail = new OrderDetail();
@@ -161,8 +161,8 @@ class PayPalController extends Controller
                 $booking->booking_date =$cart['date'];
                 $booking->save();
             }
-        
-        
+
+
         if (isset($response['status']) && $response['status'] == 'COMPLETED') {
             return redirect()
                 ->route('home')
